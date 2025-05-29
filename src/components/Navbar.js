@@ -5,7 +5,7 @@ const Navbar = () => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" sx={{ flexGrow: 1 }}>
-        Money Monitors
+        Wealth Setu
       </Typography>
       <Button color="inherit">Home</Button>
       <Button color="inherit">Services</Button>
