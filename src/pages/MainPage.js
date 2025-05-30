@@ -76,6 +76,7 @@ export default function MainPage() {
         },
       }}
     >
+        
       <Grid
         container
         spacing={4}

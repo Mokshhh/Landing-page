@@ -1,57 +1,117 @@
-// HowWeWork.js
 import React from 'react';
-import { Box, Typography, Grid, Paper } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import {
+  Box,
+  Typography,
+  Grid,
+  Paper,
+  useTheme,
+  useMediaQuery,
+} from '@mui/material';
 
 const steps = [
-  { title: 'Step 1', desc: 'Tell us your needs' },
-  { title: 'Step 2', desc: 'Get Matched with Experts' },
-  { title: 'Step 3', desc: 'Receive a Personalized Plan' },
-  { title: 'Step 4', desc: 'Track and Implement' },
+  {
+    title: 'Step 1',
+    heading: 'Tell us your needs',
+    desc: 'Choose from loans, insurance, investments or taxes',
+  },
+  {
+    title: 'Step 2',
+    heading: 'Get Matched with Experts',
+    desc: 'We connect you with finance professionals.',
+  },
+  {
+    title: 'Step 3',
+    heading: 'Receive a Personalized Plan',
+    desc: 'Get tailored solutions for your finance goals.',
+  },
+  {
+    title: 'Step 4',
+    heading: 'Track and Implement',
+    desc: 'Follow through with expert guidance.',
+  },
 ];
 
-const StepBox = ({ title, desc }) => (
-  <Paper elevation={3} sx={{ p: 2, minHeight: 120, textAlign: 'center', borderRadius: 2 }}>
-    <Typography variant="h6" fontWeight={700}>{title}</Typography>
-    <Typography variant="body1" mt={1}>{desc}</Typography>
+const StepBox = ({ title, heading, desc }) => (
+  <Paper
+    elevation={3}
+    sx={{
+      p: 3,
+      backgroundColor: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(255,255,255,0.1)',
+      backdropFilter: 'blur(8px)',
+      borderRadius: 3,
+      textAlign: 'center',
+      height: '100%',
+    }}
+  >
+    <Typography
+      variant="h6"
+      sx={{
+        color: '#FFD700',
+        fontFamily: "'PT Serif', serif",
+        fontWeight: 600,
+      }}
+    >
+      {title}
+    </Typography>
+    <Typography
+      variant="subtitle1"
+      sx={{
+        mt: 1,
+        color: '#ffffff',
+        fontFamily: "'PT Serif', serif",
+        fontWeight: 500,
+      }}
+    >
+      {heading}
+    </Typography>
+    <Typography
+      variant="body2"
+      sx={{
+        mt: 1,
+        color: '#cccccc',
+        fontFamily: "'Roboto', sans-serif",
+        fontWeight: 300,
+      }}
+    >
+      {desc}
+    </Typography>
   </Paper>
 );
 
 const HowWeWork = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Box sx={{ py: 6, backgroundColor: '#648DB3', textAlign: 'center' }}>
-      <Typography variant="h4" fontWeight={600} mb={4}>
-        How We Work
+    <Box
+      sx={{
+        py: 6,
+        px: { xs: 2, sm: 4, md: 10 },
+        backgroundColor: '#5C538A', // Lighter than #4B4376
+        textAlign: 'center',
+        position: 'relative',
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: 600,
+          color: '#FFD700',
+          fontFamily: "'PT Serif', serif",
+          mb: 6,
+        }}
+      >
+        How We Work?
       </Typography>
 
-      <Grid container spacing={3} justifyContent="center" alignItems="center">
-        {/* Row 1 */}
-        <Grid item xs={5} sm={5}>
-          <StepBox title={steps[0].title} desc={steps[0].desc} />
-        </Grid>
-        <Grid item xs={2} display="flex" justifyContent="center">
-          <ArrowForwardIcon sx={{ fontSize: 40 }} />
-        </Grid>
-        <Grid item xs={5} sm={5}>
-          <StepBox title={steps[1].title} desc={steps[1].desc} />
-        </Grid>
-
-        {/* Arrow between rows */}
-        <Grid item xs={12} display="flex" justifyContent="center" my={2}>
-          <ArrowDownwardIcon sx={{ fontSize: 40 }} />
-        </Grid>
-
-        {/* Row 2 */}
-        <Grid item xs={5} sm={5}>
-          <StepBox title={steps[2].title} desc={steps[2].desc} />
-        </Grid>
-        <Grid item xs={2} display="flex" justifyContent="center">
-          <ArrowForwardIcon sx={{ fontSize: 40 }} />
-        </Grid>
-        <Grid item xs={5} sm={5}>
-          <StepBox title={steps[3].title} desc={steps[3].desc} />
-        </Grid>
+      {/* Two Rows, Each with 2 Boxes */}
+      <Grid container spacing={4} justifyContent="center" alignItems="stretch">
+        {steps.map((step, index) => (
+          <Grid item xs={12} sm={6} md={5} key={index}>
+            <StepBox {...step} />
+          </Grid>
+        ))}
       </Grid>
     </Box>
   );
