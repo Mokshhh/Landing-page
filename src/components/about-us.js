@@ -18,6 +18,32 @@ const AboutUs = () => (
     </Typography>
 
     <Grid container spacing={8} alignItems="center" justifyContent="center">
+      {/* Right: Circular Image with Better Gradient */}
+      <Grid item xs={12} md={6}>
+        <Box
+          sx={{
+            background: 'linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%)',
+            borderRadius: '50%',
+            width: 320,
+            height: 320,
+            mx: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
+          }}
+        >
+          <Avatar
+            alt="Sushant"
+            src={sushantImg}
+            sx={{
+              width: 280,
+              height: 280,
+              border: '6px solid white',
+            }}
+          />
+        </Box>
+      </Grid>
       {/* Left: Portrait-style Description Card */}
       <Grid item xs={12} md={6}>
         <Paper
@@ -61,32 +87,7 @@ const AboutUs = () => (
         </Paper>
       </Grid>
 
-      {/* Right: Circular Image with Better Gradient */}
-      <Grid item xs={12} md={6}>
-        <Box
-          sx={{
-            background: 'linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%)',
-            borderRadius: '50%',
-            width: 320,
-            height: 320,
-            mx: 'auto',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: '0 8px 30px rgba(0,0,0,0.1)',
-          }}
-        >
-          <Avatar
-            alt="Sushant"
-            src={sushantImg}
-            sx={{
-              width: 280,
-              height: 280,
-              border: '6px solid white',
-            }}
-          />
-        </Box>
-      </Grid>
+      
     </Grid>
   </Box>
 );
