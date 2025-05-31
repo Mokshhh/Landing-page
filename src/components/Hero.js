@@ -1,7 +1,11 @@
 import React from 'react';
 import { Box, Typography, Button, Fade } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-const Hero = () => (
+
+const Hero = () => {
+  const navigate = useNavigate();
+  return(
   <Fade in timeout={1000}>
     <Box
       sx={{
@@ -9,8 +13,8 @@ const Hero = () => (
         py: { xs: 8, sm: 10 },
         px: 2,
         textAlign: 'center',
-        background: 'linear-gradient(to right, #4B4376, #2b5876)', // Right-side gradient
-        color: '#fff',
+        backgroundColor: '#071219', // solid dark background
+        color: '#00bc86',
         overflow: 'hidden',
       }}
     >
@@ -20,12 +24,12 @@ const Hero = () => (
           position: 'absolute',
           width: 300,
           height: 300,
-          bgcolor: '#FFD700',
+          bgcolor: '#ff6a00',
           borderRadius: '50%',
           filter: 'blur(150px)',
           top: '20%',
           right: '-100px',
-          opacity: 0.2,
+          opacity: 0.15,
           zIndex: 0,
         }}
       />
@@ -38,7 +42,7 @@ const Hero = () => (
           sx={{
             fontWeight: 700,
             fontFamily: "'PT Serif', serif",
-            color: '#FFD700',
+            color: '#00bc86',
           }}
         >
           Invest in Your Future
@@ -48,15 +52,14 @@ const Hero = () => (
           sx={{
             fontFamily: "'Roboto', sans-serif",
             color: '#FFFFFF',
-            opacity: 0.9,
+            opacity: 0.85,
           }}
         >
-          Trusted financial guidance for{' '}
-          <strong style={{ color: '#FFEE99' }}>CAs & Professionals</strong>
+          Your trusted partner in financial growth.
         </Typography>
         <Button
           variant="contained"
-          color="primary"
+          onClick={() => navigate('/BookAppointment')}
           sx={{
             mt: 4,
             fontWeight: 'bold',
@@ -65,6 +68,12 @@ const Hero = () => (
             borderRadius: '24px',
             textTransform: 'none',
             fontSize: '1rem',
+            backgroundColor: '#00bc86',
+            color: '#071219',
+            '&:hover': {
+              backgroundColor: '#ff6a00',
+              color: '#ffffff',
+            },
             boxShadow: '0px 4px 20px rgba(0,0,0,0.2)',
           }}
         >
@@ -73,6 +82,6 @@ const Hero = () => (
       </Box>
     </Box>
   </Fade>
-);
+  )};
 
 export default Hero;

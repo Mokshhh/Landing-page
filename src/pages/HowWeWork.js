@@ -33,23 +33,28 @@ const steps = [
 
 const StepBox = ({ title, heading, desc }) => (
   <Paper
-    elevation={3}
+    elevation={4}
     sx={{
       p: 3,
-      backgroundColor: 'rgba(255, 255, 255, 0.04)',
-      border: '1px solid rgba(255,255,255,0.1)',
-      backdropFilter: 'blur(8px)',
-      borderRadius: 3,
+      backgroundColor: 'rgba(0, 188, 134, 0.05)',
+      border: '1px solid rgba(0,188,134,0.2)',
+      backdropFilter: 'blur(10px)',
+      borderRadius: 4,
       textAlign: 'center',
       height: '100%',
+      transition: 'transform 0.3s ease',
+      '&:hover': {
+        transform: 'translateY(-5px)',
+        boxShadow: '0 8px 20px rgba(0, 188, 134, 0.2)',
+      },
     }}
   >
     <Typography
       variant="h6"
       sx={{
-        color: '#FFD700',
-        fontFamily: "'PT Serif', serif",
-        fontWeight: 600,
+        color: '#00bc86',
+        fontWeight: 700,
+        fontFamily: "'Montserrat', sans-serif",
       }}
     >
       {title}
@@ -58,9 +63,9 @@ const StepBox = ({ title, heading, desc }) => (
       variant="subtitle1"
       sx={{
         mt: 1,
-        color: '#ffffff',
-        fontFamily: "'PT Serif', serif",
-        fontWeight: 500,
+        color: '#e0fff7',
+        fontWeight: 600,
+        fontFamily: "'Montserrat', sans-serif",
       }}
     >
       {heading}
@@ -69,9 +74,8 @@ const StepBox = ({ title, heading, desc }) => (
       variant="body2"
       sx={{
         mt: 1,
-        color: '#cccccc',
-        fontFamily: "'Roboto', sans-serif",
-        fontWeight: 300,
+        color: '#a0d6c6',
+        fontFamily: "'Open Sans', sans-serif",
       }}
     >
       {desc}
@@ -86,26 +90,24 @@ const HowWeWork = () => {
   return (
     <Box
       sx={{
-        py: 6,
+        py: 8,
         px: { xs: 2, sm: 4, md: 10 },
-        backgroundColor: '#5C538A', // Lighter than #4B4376
+        backgroundColor: '#071219',
         textAlign: 'center',
-        position: 'relative',
       }}
     >
       <Typography
         variant="h4"
         sx={{
-          fontWeight: 600,
-          color: '#FFD700',
-          fontFamily: "'PT Serif', serif",
+          fontWeight: 700,
+          color: '#00bc86',
+          fontFamily: "'Montserrat', sans-serif",
           mb: 6,
         }}
       >
         How We Work?
       </Typography>
 
-      {/* Two Rows, Each with 2 Boxes */}
       <Grid container spacing={4} justifyContent="center" alignItems="stretch">
         {steps.map((step, index) => (
           <Grid item xs={12} sm={6} md={5} key={index}>

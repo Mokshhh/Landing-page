@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '#4B4376' }}>
+    <AppBar position="static" sx={{ bgcolor: '#071219' }}>
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         {/* Logo */}
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -48,30 +48,29 @@ const Navbar = () => {
           </Link>
         </Box>
 
-        {/* Responsive: Drawer on Mobile, Buttons on Desktop */}
         {isMobile ? (
           <>
-            <IconButton edge="end" color="inherit" onClick={toggleDrawer(true)}>
+            <IconButton edge="end" sx={{ color: '#00bc86' }} onClick={toggleDrawer(true)}>
               <MenuIcon />
             </IconButton>
 
             <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
               <Box
-                sx={{ width: 250 }}
+                sx={{ width: 250, bgcolor: '#071219', height: '100%', color: '#00bc86' }}
                 role="presentation"
                 onClick={toggleDrawer(false)}
                 onKeyDown={toggleDrawer(false)}
               >
                 <List>
-                  <ListItem button component={Link} to="/">
+                  <ListItem button component={Link} to="/" sx={{ '&:hover': { color: '#ff6a00' } }}>
                     <HomeIcon fontSize="small" style={{ marginRight: 8 }} />
                     <ListItemText primary="Home" />
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button sx={{ '&:hover': { color: '#ff6a00' } }}>
                     <ScheduleIcon fontSize="small" style={{ marginRight: 8 }} />
                     <ListItemText primary="Book an Appointment" />
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button sx={{ '&:hover': { color: '#ff6a00' } }}>
                     <CallIcon fontSize="small" style={{ marginRight: 8 }} />
                     <ListItemText primary="Call Us" />
                   </ListItem>
@@ -82,30 +81,54 @@ const Navbar = () => {
         ) : (
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <Button
-              color="inherit"
+              sx={{
+                color: '#00bc86',
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': { color: '#ff6a00' },
+              }}
               startIcon={<HomeIcon />}
               component={Link}
               to="/"
-              sx={{ textTransform: 'none', fontWeight: 'bold' }}
             >
               Home
             </Button>
 
             <Button
-              color="inherit"
+              sx={{
+                color: '#00bc86',
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': { color: '#ff6a00' },
+              }}
               endIcon={<MenuIcon />}
               onClick={handleOpenMenu}
-              sx={{ textTransform: 'none', fontWeight: 'bold' }}
             >
               Contact Us
             </Button>
 
-            <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleCloseMenu}>
-              <MenuItem onClick={handleCloseMenu}>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleCloseMenu}
+              sx={{
+                '& .MuiPaper-root': {
+                  bgcolor: '#071219',
+                  color: '#00bc86',
+                },
+              }}
+            >
+              <MenuItem component={Link} to="/BookAppointment"
+                onClick={handleCloseMenu}
+                sx={{ '&:hover': { color: '#ff6a00' } }}
+              >
                 <ScheduleIcon fontSize="small" style={{ marginRight: 8 }} />
                 Book an Appointment
               </MenuItem>
-              <MenuItem onClick={handleCloseMenu}>
+              <MenuItem component={Link} to="/CallUs"
+                onClick={handleCloseMenu}
+                sx={{ '&:hover': { color: '#ff6a00' } }}
+              >
                 <CallIcon fontSize="small" style={{ marginRight: 8 }} />
                 Call Us
               </MenuItem>

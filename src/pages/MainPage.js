@@ -22,9 +22,9 @@ const phrases = [
 ];
 
 const specialties = [
-  { text: 'Comprehensive Wealth Management', icon: <Savings sx={{ color: '#FFF4B7' }} /> },
-  { text: 'Strategic Debt Solutions', icon: <AccountBalance sx={{ color: '#FFF4B7' }} /> },
-  { text: 'Tailored Insurance Strategies', icon: <Security sx={{ color: '#FFF4B7' }} /> },
+  { text: 'Comprehensive Wealth Management', icon: <Savings sx={{ color: '#ff6a00' }} /> },
+  { text: 'Strategic Debt Solutions', icon: <AccountBalance sx={{ color: '#ff6a00' }} /> },
+  { text: 'Tailored Insurance Strategies', icon: <Security sx={{ color: '#ff6a00' }} /> },
 ];
 
 export default function MainPage() {
@@ -43,7 +43,7 @@ export default function MainPage() {
         position: 'relative',
         p: { xs: 2, sm: 3, md: 6 },
         minHeight: '100vh',
-        backgroundColor: '#4B4376',
+        backgroundColor: '#071219',
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
@@ -51,32 +51,31 @@ export default function MainPage() {
         '&::before': {
           content: '""',
           position: 'absolute',
-          width: 300,
-          height: 300,
-          bgcolor: '#FFD700',
+          width: 280,
+          height: 280,
+          bgcolor: '#00bc86',
           borderRadius: '50%',
-          filter: 'blur(150px)',
+          filter: 'blur(120px)',
           top: '-50px',
           left: '-50px',
           zIndex: 0,
-          opacity: 0.3,
+          opacity: 0.15,
         },
         '&::after': {
           content: '""',
           position: 'absolute',
-          width: 400,
-          height: 400,
-          bgcolor: '#003161',
+          width: 360,
+          height: 360,
+          bgcolor: '#ff6a00',
           borderRadius: '50%',
-          filter: 'blur(200px)',
+          filter: 'blur(150px)',
           bottom: '-100px',
           right: '-100px',
           zIndex: 0,
-          opacity: 0.2,
+          opacity: 0.12,
         },
       }}
     >
-        
       <Grid
         container
         spacing={4}
@@ -95,8 +94,8 @@ export default function MainPage() {
               width: { xs: '100%', sm: 320 },
               height: { xs: 'auto', sm: 400 },
               borderRadius: 4,
-              bgcolor: 'transparent',
-              border: '1px solid rgba(255,255,255,0.1)',
+              backgroundColor: 'rgba(0, 188, 134, 0.06)',
+              border: '1px solid rgba(0, 188, 134, 0.2)',
               boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
               display: 'flex',
               flexDirection: 'column',
@@ -108,66 +107,66 @@ export default function MainPage() {
               textAlign: 'center',
             }}
           >
-    <CardContent
-  sx={{
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    textAlign: 'center',
-    px: 1,
-  }}
->
-  {/* Phrase */}
-  <Fade in key={index} timeout={500}>
-    <Typography
-      variant="h5"
-      sx={{
-        color: '#7EF9F9',
-        fontWeight: 600,
-        fontFamily: "'PT Serif', serif",
-        mb: 2,
-      }}
-    >
-      {phrases[index]}
-    </Typography>
-  </Fade>
+            <CardContent
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100%',
+                textAlign: 'center',
+                px: 1,
+              }}
+            >
+              {/* Phrase */}
+              <Fade in key={index} timeout={500}>
+                <Typography
+                  variant="h5"
+                  sx={{
+                    color: '#00bc86',
+                    fontWeight: 600,
+                    fontFamily: "'PT Serif', serif",
+                    mb: 2,
+                  }}
+                >
+                  {phrases[index]}
+                </Typography>
+              </Fade>
 
-  {/* Dots */}
-  <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1, mb: 4 }}>
-    {phrases.map((_, i) => (
-      <ButtonBase
-        key={i}
-        onClick={() => setIndex(i)}
-        sx={{
-          width: 10,
-          height: 10,
-          mx: 0.5,
-          borderRadius: '50%',
-          backgroundColor: i === index ? '#FFD700' : '#fff',
-          opacity: 0.4,
-          transition: 'all 0.3s',
-          '&:hover': { opacity: 0.8 },
-        }}
-      />
-    ))}
-  </Box>
+              {/* Dots */}
+              <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1, mb: 4 }}>
+                {phrases.map((_, i) => (
+                  <ButtonBase
+                    key={i}
+                    onClick={() => setIndex(i)}
+                    sx={{
+                      width: 10,
+                      height: 10,
+                      mx: 0.5,
+                      borderRadius: '50%',
+                      backgroundColor: i === index ? '#ff6a00' : '#fff',
+                      opacity: i === index ? 1 : 0.3,
+                      transition: 'all 0.3s',
+                      '&:hover': { opacity: 0.8 },
+                    }}
+                  />
+                ))}
+              </Box>
 
-  {/* Single Description at Bottom */}
-  <Typography
-    variant="body1"
-    sx={{
-      color: '#FFD700',
-      fontWeight: 600,
-      fontSize: '1rem',
-      fontFamily: "'Roboto', sans-serif",
-    }}
-  >
-    Loans | Insurance | Investments | Taxes
-  </Typography>
-</CardContent>
-
+              {/* Single Description */}
+              <Typography
+                variant="body1"
+                sx={{
+                  color: '#ffffff',
+                  fontWeight: 500,
+                  fontSize: '1rem',
+                  fontFamily: "'Roboto', sans-serif",
+                  opacity: 0.9,
+                }}
+              >
+                Loans | Insurance | Investments | Taxes
+              </Typography>
+            </CardContent>
           </Card>
         </Grid>
 
@@ -178,8 +177,8 @@ export default function MainPage() {
               width: { xs: '100%', sm: 320 },
               height: { xs: 'auto', sm: 400 },
               borderRadius: 4,
-              bgcolor: 'transparent',
-              border: '1px solid rgba(255,255,255,0.1)',
+              backgroundColor: 'rgba(0, 188, 134, 0.06)',
+              border: '1px solid rgba(0, 188, 134, 0.2)',
               boxShadow: '0 8px 24px rgba(0,0,0,0.2)',
               display: 'flex',
               flexDirection: 'column',
@@ -193,7 +192,7 @@ export default function MainPage() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: '#7EF9F9',
+                  color: '#00bc86',
                   fontWeight: 600,
                   fontFamily: "'PT Serif', serif",
                   mb: 2,
@@ -215,6 +214,7 @@ export default function MainPage() {
                             fontWeight: 400,
                             fontFamily: "'Roboto', sans-serif",
                             fontSize: { xs: '0.9rem', sm: '1rem' },
+                            opacity: 0.85,
                           }}
                         >
                           {item.text}
