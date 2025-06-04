@@ -7,7 +7,9 @@ import MainPage from './pages/MainPage';
 import HowWeWork from './pages/HowWeWork';
 import { Route, Routes } from 'react-router-dom';
 import BookAppointment from './pages/BookAppointment'; 
-import CallUs from './pages/CallUs'
+import CallUs from './pages/CallUs';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -22,10 +24,12 @@ function App() {
           element={
             <>
               <Hero />
-              <MainPage />
               <HowWeWork />
+              <MainPage />
               <AboutUs />
               <Footer />
+              <ToastContainer />
+
             </>
           }
         />

@@ -1,5 +1,9 @@
 // src/pages/BookAppointment.js
 import React, { useState } from 'react';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
+import { toast } from 'react-toastify'; 
+
 import {
   Box,
   TextField,
@@ -19,11 +23,36 @@ export default function BookAppointment() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setOpenSnackbar(true);
-    setFormData({ name: '', phone: '', email: '' });
-  };
+const [name, setName] = useState('');
+const [phone, setPhone] = useState('');
+const [email, setEmail] = useState(''); 
+
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!name || !phone || !email) {
+    toast.error('Please fill all fields');
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, 'appointments'), {
+      name,
+      phone,
+      email,
+      timestamp: new Date()
+    });
+
+    toast.success('🎉 We will contact you soon!');
+    setName('');
+    setPhone('');
+    setEmail('');
+  } catch (error) {
+    console.error("Error saving appointment:", error);
+    toast.error('Something went wrong. Try again!');
+  }
+};
+
 
   return (
     <Fade in timeout={700}>
