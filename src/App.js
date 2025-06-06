@@ -10,6 +10,8 @@ import BookAppointment from './pages/BookAppointment';
 import CallUs from './pages/CallUs';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoansPage from './pages/Loans'; 
+
 
 
 
@@ -33,6 +35,7 @@ function App() {
             </>
           }
         />
+        <Route path="/Loans" element={<LoansPage />} />
         <Route path="/BookAppointment" element={<BookAppointment />} />
           <Route path="/CallUs" element={<CallUs />} />
 

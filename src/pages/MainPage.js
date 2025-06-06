@@ -153,19 +153,7 @@ export default function MainPage() {
                 ))}
               </Box>
 
-              {/* Single Description */}
-              <Typography
-                variant="body1"
-                sx={{
-                  color: '#ffffff',
-                  fontWeight: 500,
-                  fontSize: '1rem',
-                  fontFamily: "'Roboto', sans-serif",
-                  opacity: 0.9,
-                }}
-              >
-                Loans | Insurance | Investments | Taxes
-              </Typography>
+             
             </CardContent>
           </Card>
         </Grid>

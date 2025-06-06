@@ -1,17 +1,7 @@
 import React from 'react';
+// import { useNavigate } from 'react-router-dom';
 import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Button,
-  Menu,
-  MenuItem,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemText,
-  useMediaQuery,
+  AppBar, Toolbar, IconButton, Button, Menu, MenuItem, Box, Drawer, List, ListItem, ListItemText, useMediaQuery,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
@@ -29,7 +19,7 @@ const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
+  // const navigate = useNavigate();
   const handleOpenMenu = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -139,7 +129,12 @@ const Navbar = () => {
                   },
                 }}
               >
-                <MenuItem onClick={handleCloseServicesMenu} sx={{ '&:hover': { color: '#ff6a00' } }}>
+                <MenuItem component={Link}  to="/Loans"
+                  onClick={() => {
+                    handleCloseServicesMenu();
+                  }}
+                  sx={{ '&:hover': { color: '#ff6a00' } }}
+                >
                   Loans
                 </MenuItem>
                 <MenuItem onClick={handleCloseServicesMenu} sx={{ '&:hover': { color: '#ff6a00' } }}>
