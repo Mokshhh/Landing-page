@@ -1,34 +1,31 @@
 import React from 'react';
-import { Box, Typography, Button, Fade } from '@mui/material';
+import { Box, Typography, Button, Fade, Fab, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import BackgrndImg from '../assets/background-1.jpg';
-
+import BackgrndImg from '../assets/background-1.jpg'; // Original image
+import { WhatsApp } from "@mui/icons-material";
 
 const Hero = () => {
   const navigate = useNavigate();
-  return (
-    <><Box
-    sx={{
-          backgroundColor: '#071219',
-          height: '60px'
-        }}
-    
-    ></Box><Fade in timeout={1000}>
+  const isMobile = useMediaQuery('(max-width:900px)');
 
-      <Box
-        sx={{
-          backgroundColor: '#071219',
-          py: { xs: 8, sm: 12 },
-          px: { xs: 2, sm: 4, lg: 8 },
-          display: 'flex',
-          justifyContent: 'center',
-          position: 'relative',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Background Animation - Floating Gradient Circles */}
+  return (
+    <>
+      <Box sx={{ backgroundColor: '#071219', height: '60px' }}></Box>
+      
+      <Fade in timeout={1000}>
         <Box
           sx={{
+            backgroundColor: '#071219',
+            py: { xs: 4, md: 8 },
+            px: { xs: 2, md: 4 },
+            display: 'flex',
+            justifyContent: 'center',
+            position: 'relative',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Background Animation Elements */}
+          <Box sx={{
             position: 'absolute',
             width: 300,
             height: 900,
@@ -46,8 +43,8 @@ const Hero = () => {
               '100%': { transform: 'translateY(0px)' },
             },
           }} />
-        <Box
-          sx={{
+          
+          <Box sx={{
             position: 'absolute',
             width: 250,
             height: 250,
@@ -66,8 +63,8 @@ const Hero = () => {
             },
           }} />
 
-        <Box
-          sx={{
+          {/* Content Container */}
+          <Box sx={{
             maxWidth: '1200px',
             width: '100%',
             display: 'grid',
@@ -76,101 +73,138 @@ const Hero = () => {
             alignItems: 'center',
             position: 'relative',
             zIndex: 1,
-          }}
-        >
-
-          {/* Left Column */}
-          <Box sx={{ textAlign: { xs: 'center', md: 'left' } }}>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 700,
-                fontFamily: "'PT Serif', serif",
-                color: '#00bc86',
-                mb: 4,
-                fontSize: { xs: '2.5rem', md: '3.5rem' },
-                background: 'linear-gradient(45deg, #00bc86, #ff6a00)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                textShadow: '0px 2px 8px rgba(0, 188, 134, 0.4)',
-                animation: 'slideIn 1.2s ease-out',
-                '@keyframes slideIn': {
-                  '0%': { transform: 'translateX(-50px)', opacity: 0 },
-                  '100%': { transform: 'translateX(0)', opacity: 1 },
-                },
-              }}
-            >
-              Your Personal Finance Assistance Team
-            </Typography>
-            <Button
-              variant="contained"
-              onClick={() => navigate('/BookAppointment')}
-              sx={{
-                fontWeight: 'bold',
-                px: 4,
-                py: 1.5,
-                borderRadius: '24px',
-                textTransform: 'none',
-                fontSize: '1rem',
-                backgroundColor: '#00bc86',
-                color: '#071219',
-                '&:hover': {
-                  backgroundColor: '#ff6a00',
-                  color: '#ffffff',
-                },
-                boxShadow: '0px 4px 20px rgba(0,0,0,0.2)',
-              }}
-            >
-              Book Your Appointment
-            </Button>
-          </Box>
-
-          {/* Right Column */}
-          <Box sx={{ display: 'flex', justifyContent: { xs: 'center', md: 'flex-end' } }}>
-            <Box
-              sx={{
+          }}>
+            {/* Left Column - Title and Content */}
+            <Box sx={{ 
+              textAlign: { xs: 'center', md: 'left' },
+              animation: 'slideIn 1.2s ease-out',
+              '@keyframes slideIn': {
+                '0%': { transform: 'translateX(-50px)', opacity: 0 },
+                '100%': { transform: 'translateX(0)', opacity: 1 },
+              },
+            }}>
+              <Typography
+                variant="h3"
+                sx={{
+                  fontWeight: 700,
+                  fontFamily: "'PT Serif', serif",
+                  color: '#00bc86',
+                  mb: 4,
+                  fontSize: { xs: '2.5rem', md: '3.5rem' },
+                  background: 'linear-gradient(45deg, #00bc86,rgb(239, 252, 253))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  textShadow: '0px 2px 8px rgba(0, 188, 134, 0.4)',
+                }}
+              >
+                Your Personal Finance Assistance Team
+              </Typography>
+              
+              <Button
+                variant="contained"
+                onClick={() => navigate('/BookAppointment')}
+                sx={{
+                  fontWeight: 'bold',
+                  px: 4,
+                  py: 1.5,
+                  borderRadius: '24px',
+                  textTransform: 'none',
+                  fontSize: '1rem',
+                  backgroundColor: '#00bc86',
+                  color: '#071219',
+                  '&:hover': {
+                    backgroundColor: '#ff6a00',
+                    color: '#ffffff',
+                  },
+                  boxShadow: '0px 4px 20px rgba(0,0,0,0.2)',
+                }}
+              >
+                Book Your Appointment
+              </Button>
+            </Box>
+            
+            {/* Right Column - Image */}
+            <Box sx={{ 
+              display: 'flex', 
+              justifyContent: { xs: 'center', md: 'flex-end' },
+              animation: 'fadeIn 1.5s ease-out',
+              '@keyframes fadeIn': {
+                '0%': { opacity: 0 },
+                '100%': { opacity: 1 },
+              },
+            }}>
+              <Box sx={{
                 backgroundColor: '#1a2526',
                 borderRadius: '16px',
                 p: 3,
                 boxShadow: '0px 4px 20px rgba(0,0,0,0.5)',
                 maxWidth: '550px',
                 width: '100%',
-              }}
-            >
-              <img
-                src={BackgrndImg}
-                alt="Financial growth"
-                style={{ width: '100%', height: '220px', objectFit: 'cover', borderRadius: '8px', marginBottom: '16px' }} />
-              <Typography
-                variant="body1"
-                sx={{
-                  textAlign: 'center',
-                  color: '#e0e0e0',
-                  fontWeight: 500,
-                  fontFamily: "'Roboto', sans-serif",
-                  fontSize: '1.125rem',
-                  mb: 1
-                }}
-              >
-                Take Control of Your Finances with Expert Guidance
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  textAlign: 'center',
-                  color: '#9e9e9e', // Grey color
-                  fontWeight: 600, // Bolder
-                  fontFamily: "'Roboto', sans-serif",
-                  fontSize: '0.875rem', // Smaller
-                }}
-              >
-                Loans | Insurance | Investments | Taxes
-              </Typography>
+              }}>
+                <img
+                  src={BackgrndImg}
+                  alt="Financial growth"
+                  style={{ 
+                    width: '100%', 
+                    height: '220px', 
+                    objectFit: 'cover', 
+                    borderRadius: '8px', 
+                    marginBottom: '16px' 
+                  }} 
+                />
+                <Typography
+                  variant="body1"
+                  sx={{
+                    textAlign: 'center',
+                    color: '#e0e0e0',
+                    fontWeight: 500,
+                    fontFamily: "'Roboto', sans-serif",
+                    fontSize: '1.125rem',
+                    mb: 1
+                  }}
+                >
+                  Take Control of Your Finances with Expert Guidance
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    textAlign: 'center',
+                    color: '#9e9e9e',
+                    fontWeight: 600,
+                    fontFamily: "'Roboto', sans-serif",
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  Loans | Insurance | Investments | Taxes
+                </Typography>
+              </Box>
             </Box>
           </Box>
+          
+          {/* WhatsApp Floating Button */}
+          <Fab
+            color="primary"
+            aria-label="contact via WhatsApp"
+            sx={{
+              position: 'fixed',
+              bottom: 16,
+              right: 16,
+              backgroundColor: '#00bc86',
+              '&:hover': {
+                backgroundColor: '#00a375',
+                transform: 'scale(1.1)',
+              },
+              transition: 'transform 0.3s ease, background-color 0.3s ease',
+              zIndex: 1000,
+            }}
+            href="https://wa.me/+919785544402"
+            target="_blank"
+          >
+            <WhatsApp sx={{ fontSize: 30 }} />
+          </Fab>
         </Box>
-      </Box>
-    </Fade></>
+      </Fade>
+    </>
   );
 };
 

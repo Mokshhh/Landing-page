@@ -1,187 +1,110 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent } from '@mui/material';
-import { AccountBalance, Savings, Security } from '@mui/icons-material';
+import { Box, Typography, Card, CardContent, Grid, Divider, Fade } from '@mui/material';
+import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
+import { Phone, Lightbulb, Edit, LocationOn, Assessment, Autorenew, ShowChart, Settings, Receipt } from '@mui/icons-material';
 
-
-export default function WhatWeDo() {
-   const specialties = [
-    { text: 'Comprehensive Wealth Management', icon: <Savings sx={{ color: '#ff6a00' }} /> },
-    { text: 'Strategic Debt Solutions', icon: <AccountBalance sx={{ color: '#ff6a00' }} /> },
-    { text: 'Tailored Insurance Strategies', icon: <Security sx={{ color: '#ff6a00' }} /> },
+export default function InvestmentComparison() {
+  const traditionalSteps = [
+    { icon: Phone, text: 'Contact Bank / CA' },
+    { icon: Lightbulb, text: 'Receive MF/SIP suggestions' },
+    { icon: Edit, text: 'Apply for investments' },
+    { icon: LocationOn, text: 'Follow-up visits' },
+    { icon: Assessment, text: 'Monitor performance' },
+    { icon: Autorenew, text: 'Portfolio rebalancing' },
   ];
-  return (
-    <Box
-      sx={{
-        py: 6,
-        px: { xs: 2, sm: 4, md: 10 },
-        backgroundColor: '#071219',
-        textAlign: 'center',
-      }}
-    >
-      <Typography
-        variant="h4"
-        sx={{
-          fontWeight: 700,
-          color: '#00bc86',
-          fontFamily: "'Montserrat', sans-serif",
-          mb: 2,
-        }}
-      >
-        What we Provide/ What's our USP?
-      </Typography>
-    <Box
-      sx={{
-        backgroundColor: '#071219',
-        color: '#e0fff7',
-        py: 6,
-        px: { xs: 2, md: 4 },
-        display: 'flex',
-        flexDirection: { xs: 'column', md: 'row' },
-        gap: 4,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-      }}
-    >
-     
-      {/* Process Steps Column */}
-      <Box sx={{ flex: 1, maxWidth: { md: '33%' } }}>
-        {[{
-          step: 'Step 1',
-          heading: 'Tell us your needs',
-          description: 'Choose from loans, insurance, investments or taxes',
-        }, {
-          step: 'Step 2',
-          heading: 'Get Matched with Experts',
-          description: 'We connect you with finance professionals.',
-        }, {
-          step: 'Step 3',
-          heading: 'Receive a Personalized Plan',
-          description: 'Get tailored solutions for your finance goals.',
-        }, {
-          step: 'Step 4',
-          heading: 'Track and Implement',
-          description: 'Follow through with expert guidance.',
-        }].map(({ step, heading, description }, index) => (
-          <Card
-            key={index}
-            sx={{
-              backgroundColor: 'rgba(0, 188, 134, 0.05)',
-              border: '1px solid rgba(0,188,134,0.2)',
-              borderRadius: 2,
-              mb: 3,
-              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-              },
-            }}
-          >
-            <CardContent>
-              <Typography
-                variant="h6"
-                sx={{ color: '#00bc86', fontWeight: 700, fontFamily: 'Montserrat', textAlign: 'center' }}
-              >
-                {step}
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                sx={{ color: '#e0fff7', fontFamily: 'Montserrat', mt: 1, textAlign: 'center'  }}
-              >
-                {heading}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ color: '#a0d6c6', fontFamily: 'Open Sans', mt: 1, textAlign: 'center'  }}
-              >
-                {description}
-              </Typography>
-            </CardContent>
-          </Card>
-        ))}
-      </Box>
 
-      {/* Loan Assistance Column */}
-      <Box sx={{ flex: 2 }}>
-        <Card
-          sx={{
-            backgroundColor: 'rgba(0, 188, 134, 0.05)',
-            border: '1px solid rgba(0,188,134,0.2)',
-            borderRadius: 2,
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-            '&:hover': {
-              transform: 'translateY(-5px)',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.2)',
-            },
-          }}
+  const wealthSetuSteps = [
+    { icon: Phone, text: 'Book free consultation' },
+    { icon: ShowChart, text: 'We analyze your portfolio' },
+    { icon: Settings, text: 'We craft your strategy' },
+    { icon: Autorenew, text: 'We rebalance regularly' },
+    { icon: Receipt, text: 'You get online reports' },
+  ];
+
+  const cardStyle = {
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    border: '1px solid rgba(0,188,134,0.5)',
+    borderRadius: 4,
+    p: 2,
+    backdropFilter: 'blur(4px)',
+    transition: 'transform 0.3s ease',
+    '&:hover': {
+      transform: 'scale(1.02)',
+      boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+    },
+  };
+
+  return (
+    <Box sx={{ backgroundColor: '#071219', minHeight: '100vh', py: 4, px: { xs: 2, md: 6 } }}>
+      <Fade in timeout={600}>
+        <Typography
+          variant="h4"
+          align="center"
+          sx={{ color: '#00bc86', fontWeight: 700, fontFamily: 'Montserrat', mb: 4 }}
         >
-          <CardContent>
-            <Typography
-              variant="h5"
-              sx={{ color: '#00bc86', fontWeight: 700, fontFamily: 'Montserrat', mb: 3, textAlign: 'center' }}
-            >
-              How We Help You with Loans
-            </Typography>
-            <Typography
-            variant="body1"
-            sx={{ color: '#e0fff7', fontFamily: 'Open Sans', lineHeight: 1.8, textAlign: 'justify' }}
-          >
-            Navigating the world of loans can be 
-            overwhelming due to the variety of
-            options, interest rates, and policies 
-            offered by different banks. 
-            At WealthSetu, we simplify this process
-            for you. Our team thoroughly analyzes 
-            loan facilities from multiple banks, 
-            comparing their terms and conditions. 
-            We then guide you to select the best
-            loan tailored to your specific needs, 
-            ensuring you make an informed decision 
-            with confidence.
-          </Typography>
-          </CardContent>
-        </Card>
-         {/* Why Us Box */}
-        <Card
-          sx={{
-            mt: 4,
-            backgroundColor: 'rgba(0, 188, 134, 0.05)',
-            border: '1px solid rgba(0,188,134,0.2)',
-            borderRadius: 2,
-            p: 2,
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{ color: '#00bc86', fontWeight: 700, fontFamily: 'Montserrat', mb: 2 }}
-          >
-            Why Us?
-          </Typography>
-          <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
-            {specialties.map((item, index) => (
-              <Card
-                key={index}
-                sx={{
-                  backgroundColor: 'rgba(255,255,255,0.02)',
-                  border: '1px solid rgba(0,188,134,0.2)',
-                  borderRadius: 2,
-                  p: 1.5,
-                  minWidth: 200,
-                  flex: '1 1 200px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 1.5,
-                }}
-              >
-                {item.icon}
-                <Typography sx={{ color: '#e0fff7', fontFamily: 'Open Sans' }}>
-                  {item.text}
+          Investment Comparison
+        </Typography>
+      </Fade>
+
+      <Fade in timeout={800}>
+        <Grid container spacing={3}>
+          {/* Traditional */}
+          <Grid item xs={12} md={6}>
+            <Card sx={cardStyle}>
+              <CardContent>
+                <Typography variant="h6" sx={{ color: '#ff6a00', fontWeight: 600, mb: 2 }}>
+                  Traditional Process
                 </Typography>
-              </Card>
-            ))}
-          </Box>
-        </Card>
-      </Box>
+                <Divider sx={{ borderColor: '#ff6a00', mb: 2 }} />
+                <Timeline position="right">
+                  {traditionalSteps.map((step, i) => (
+                    <TimelineItem key={i}>
+                      <TimelineSeparator>
+                        <TimelineDot sx={{ bgcolor: '#ff6a00' }}>
+                          <step.icon />
+                        </TimelineDot>
+                        {i < traditionalSteps.length - 1 && <TimelineConnector sx={{ bgcolor: '#ff6a00' }} />}
+                      </TimelineSeparator>
+                      <TimelineContent>
+                        <Typography sx={{ color: '#fff', fontSize: '0.95rem' }}>{step.text}</Typography>
+                      </TimelineContent>
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              </CardContent>
+            </Card>
+          </Grid>
+
+          {/* Wealth Setu */}
+          <Grid item xs={12} md={6}>
+            <Card sx={cardStyle}>
+              <CardContent>
+                <Typography variant="h6" sx={{ color: '#00bc86', fontWeight: 600, mb: 2 }}>
+                  Wealth Setu Process
+                </Typography>
+                <Divider sx={{ borderColor: '#00bc86', mb: 2 }} />
+                <Timeline position="right">
+                  {wealthSetuSteps.map((step, i) => (
+                    <TimelineItem key={i}>
+                      <TimelineSeparator>
+                        <TimelineDot sx={{ bgcolor: '#00bc86' }}>
+                          <step.icon />
+                        </TimelineDot>
+                        {i < wealthSetuSteps.length - 1 && (
+                          <TimelineConnector sx={{ bgcolor: '#00bc86' }} />
+                        )}
+                      </TimelineSeparator>
+                      <TimelineContent>
+                        <Typography sx={{ color: '#fff', fontSize: '0.95rem' }}>{step.text}</Typography>
+                      </TimelineContent>
+                    </TimelineItem>
+                  ))}
+                </Timeline>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Fade>
     </Box>
-   </Box> 
   );
 }
